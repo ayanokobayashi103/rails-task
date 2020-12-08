@@ -1,4 +1,5 @@
 class SamplesController < ApplicationController
+  before_action :set_sample, only: [:show, :edit, :update, :destroy]
   def index
     @samples = Sample.all
   end
@@ -14,21 +15,26 @@ class SamplesController < ApplicationController
     end
   end
   def show
-    @sample = Sample.find(params[:id])
   end
   def edit
-    @sample = Sample.find(params[:id])
   end
   def update
-    @sample = Sample.find(params[:id])
     if @sample.update(sample_params)
      redirect_to samples_path, notice: "編集しました！"
    else
      render :edit
    end
   end
+  def destroy
+    @sample.destroy
+  redirect_to samples_path, notice:"削除しました！"
+  end
+
   private
   def sample_params
     params.require(:sample).permit(:content)
+  end
+  def set_sample
+    @sample = Sample.find(params[:id])
   end
 end
