@@ -8,12 +8,16 @@ class SamplesController < ApplicationController
   end
   def create
     @sample = Sample.new(sample_params)
+    if params[:back]
+     render :new
+   else
     if @sample.save
       redirect_to samples_path, notice: "投稿しました"
     else
       render :new
     end
   end
+end
   def show
   end
   def edit
@@ -29,7 +33,10 @@ class SamplesController < ApplicationController
     @sample.destroy
   redirect_to samples_path, notice:"削除しました！"
   end
-
+  def confirm
+    @sample = Sample.new(sample_params)
+     render :new if @sample.invalid?
+  end
   private
   def sample_params
     params.require(:sample).permit(:content)

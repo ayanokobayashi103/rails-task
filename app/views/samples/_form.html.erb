@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/style.css">
-<%= form_with(model: @sample, local: true) do |form| %>
+<%= form_with(model: @sample, local: true, url: confirm_samples_path) do |form| %>
 <% if @sample.errors.any? %>
 <div id="error_explanation">
   <h2><%= @sample.errors.count %>件のエラーがあります。</h2>
