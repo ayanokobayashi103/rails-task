@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel="stylesheet" href="./css/style.css">
+<%= form_with(model: @sample, local: true) do |form| %>
+<% if @sample.errors.any? %>
+<div id="error_explanation">
+  <h2><%= @sample.errors.count %>件のエラーがあります。</h2>
+  <ul>
+    <% @sample.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="sample_content">
+  <label for="sample_content">Content</label><br>
+  <input type="text" name="sample[content]">
+</div>
+<input type="submit" name="commit" value="投稿" data-disable-with="Create Sample">
+</form>
+<footer class="footer">
+</footer>
+<% end %>

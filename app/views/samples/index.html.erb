@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/style.css">
+<% notice %>
 <h1>投稿一覧</h1>
 <table>
   <tr>
@@ -9,6 +10,7 @@
   <tr>
     <td><%= sample.content %></td>
        <td><%= link_to '詳細を確認する', sample_path(sample.id) %></td>
+       <td><%= link_to "編集する", edit_sample_path(sample.id) %></td>
   </tr>
 <% end %>
 </table>
