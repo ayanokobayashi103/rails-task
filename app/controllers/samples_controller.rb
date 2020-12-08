@@ -6,8 +6,12 @@ class SamplesController < ApplicationController
     @sample = Sample.new
   end
   def create
-    Sample.create(sample_params)
-    redirect_to new_sample_path
+    @sample = Sample.new(sample_params)
+    if @sample.save
+      redirect_to sample_path, notice: "投稿しました"
+    else
+      render :new
+    end
   end
   def show
     @sample = Sample.find(params[:id])
