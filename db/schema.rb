@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_074219) do
   enable_extension "plpgsql"
 
   create_table "samples", force: :cascade do |t|
+    t.text "content"
   end
 
 end

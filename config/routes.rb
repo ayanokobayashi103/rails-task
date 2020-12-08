@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-    get '/samples', to: 'samples#index'
+  resources :samples
 end

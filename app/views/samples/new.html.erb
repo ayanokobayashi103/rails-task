@@ -1,0 +1,14 @@
+<html>
+<%= form_with(model: @sample, local: true) do |form| %>
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel="stylesheet" href="./css/style.css">
+  <div class="sample_content">
+    <label for="sample_content">Content</label><br>
+    <input type="text" name="sample[content]">
+  </div>
+  <input type="submit" name="commit" value="投稿" data-disable-with="Create Sample">
+</form>
+<footer class="footer">
+</footer>
+<% end %>
+</html>
