@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="./css/normalize.css">
-<link rel="stylesheet" href="./css/style.css">
 <%= form_with(model: @sample, local: true, url: choose_new_or_edit) do |form| %>
 <% if @sample.errors.any? %>
 <div id="error_explanation">
@@ -18,6 +17,5 @@
 </div>
 <%= form.submit value="投稿"%>
 </form>
-<footer class="footer"></footer>
 <% end %>
 <%= link_to "一覧画面にもどる", samples_path %>
