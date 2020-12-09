@@ -9,33 +9,33 @@ class SamplesController < ApplicationController
   def create
     @sample = Sample.new(sample_params)
     if params[:back]
-     render :new
-   else
-    if @sample.save
-      redirect_to samples_path, notice: "投稿しました"
-    else
       render :new
+    else
+      if @sample.save
+        redirect_to samples_path, notice: "投稿しました"
+      else
+        render :new
+      end
     end
   end
-end
   def show
   end
   def edit
   end
   def update
     if @sample.update(sample_params)
-     redirect_to samples_path, notice: "編集しました！"
-   else
-     render :edit
-   end
+      redirect_to samples_path, notice: "編集しました！"
+    else
+      render :edit
+    end
   end
   def destroy
     @sample.destroy
-  redirect_to samples_path, notice:"削除しました！"
+    redirect_to samples_path, notice:"削除しました！"
   end
   def confirm
     @sample = Sample.new(sample_params)
-     render :new if @sample.invalid?
+    render :new if @sample.invalid?
   end
   private
   def sample_params
