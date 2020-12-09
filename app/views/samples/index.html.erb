@@ -1,18 +1,19 @@
 <link rel="stylesheet" href="./css/normalize.css">
-<h1>投稿一覧</h1>
+<h1>INDEX</h1>
 <p><%= notice %></p>
 <table>
   <tr>
-    <th>内容</th>
+    <th>Content</th>  <th>Time</th>
   </tr>
-<% @samples.each do |sample| %>
+  <% @samples.each do |sample| %>
   <tr>
     <td><%= sample.content %></td>
-       <td><%= link_to '詳細', sample_path(sample.id) %></td>
-       <td><%= link_to "編集", edit_sample_path(sample.id), data: { confirm: '本当に編集していいですか？' } %></td>
-       <td><%= link_to '削除', sample_path(sample.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <td><%=l sample.created_at, format: :long%></td>
+    <td><%= link_to 'Show', sample_path(sample.id) %></td>
+    <td><%= link_to 'edit', edit_sample_path(sample.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to 'Delete', sample_path(sample.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
-<%= link_to '新しく投稿する', new_sample_path %><br>
-<%= link_to 'トップへ戻る', root_path %>
+<%= link_to 'New Create', new_sample_path %><br>
+<%= link_to 'Top Page', root_path %>

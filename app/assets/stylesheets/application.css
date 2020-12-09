@@ -16,7 +16,7 @@
  header {
    position: relative;
    padding: 25px 0;
-   background: pink;
+   background: #06f;
  }
  body {
    background: rgba(29,161,242,1.00);
@@ -31,5 +31,5 @@
    width: 100%;
    position: absolute;
    bottom: 0;
-   background-color: pink;
+   background-color: #06f;
  }
