@@ -37,7 +37,7 @@ class SamplesController < ApplicationController
   private
   def sample_params
     params.require(:sample).permit(:content)
-    end
+  end
   def set_sample
     @sample = Sample.find(params[:id])
   end
