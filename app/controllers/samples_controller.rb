@@ -18,10 +18,6 @@ class SamplesController < ApplicationController
       end
     end
   end
-  def show
-  end
-  def edit
-  end
   def update
     if @sample.update(sample_params)
       redirect_to samples_path, notice: "編集しました！"
@@ -29,18 +25,19 @@ class SamplesController < ApplicationController
       render :edit
     end
   end
-  def destroy
-    @sample.destroy
-    redirect_to samples_path, notice:"削除しました！"
-  end
   def confirm
     @sample = Sample.new(sample_params)
     render :new if @sample.invalid?
   end
+  def destroy
+    @sample.destroy
+    redirect_to samples_path, notice:"削除しました！"
+  end
+
   private
   def sample_params
     params.require(:sample).permit(:content)
-  end
+    end
   def set_sample
     @sample = Sample.find(params[:id])
   end

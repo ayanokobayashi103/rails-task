@@ -10,7 +10,7 @@
     <td><%= sample.content %></td>
     <td><%=l sample.created_at, format: :long%></td>
     <td><%= link_to 'Show', sample_path(sample.id) %></td>
-    <td><%= link_to 'edit', edit_sample_path(sample.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to 'Edit', edit_sample_path(sample.id), data: { confirm: '本当に編集していいですか？' } %></td>
     <td><%= link_to 'Delete', sample_path(sample.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
   <% end %>
